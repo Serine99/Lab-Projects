@@ -1,0 +1,26 @@
+{
+  "name": "lab-projects",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Serine99/Lab-Projects.git"
+  },
+  "author": "Serine Sardaryan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Serine99/Lab-Projects/issues"
+  },
+  "homepage": "https://github.com/Serine99/Lab-Projects#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

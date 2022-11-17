@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create account</title>
+    <link rel="stylesheet" href="ctyle.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Create an account</h2>
+      </div>
+      <form
+        id="form"
+        class="form"
+        method="POST"
+        onsubmit="return checkInputs()"
+        action="/user-register"
+      >
+        <div class="form-control">
+          <label for="user">First Name</label>
+          <input
+            type="text"
+            placeholder="Enter First Name"
+            id="first_name"
+            name="first_name"
+          />
+        </div>
+        <div class="form-control">
+          <label for="user">Last Name</label>
+          <input
+            type="text"
+            placeholder="Enter Last Name"
+            id="last_name"
+            name="last_name"
+          />
+        </div>
+        <div class="form-control">
+          <label for="user">Account Number</label>
+          <input
+            type="number"
+            placeholder="Account number"
+            id="acc_number"
+            name="acc_number"
+          />
+        </div>
+        <button type="submit">Create</button>
+      </form>
+    </div>
+  </body>
+  <script src="createacc.js"></script>
+</html>
