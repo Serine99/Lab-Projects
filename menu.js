@@ -1,4 +1,6 @@
 import readline from "readline";
+import fs from "fs";
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -27,7 +29,22 @@ const start = async () => {
   while (true) {
     const choice = await ip();
     if (choice == 1) {
-      console.log("Account created");
+      let user = async () => {
+        return new Promise((resolve, reject) => {
+          rl.question(
+            `\n Please enter client's name, surname and account number : `,
+            (name, surname, accountNumber) => {
+              resolve(name, surname, accountNumber);
+            }
+          );
+        });
+      };
+
+      user().then(async () => {
+        console.log("User created, \n Thank you!");
+        await createUser();
+        process.exit();
+      });
     } else if (choice == 2) {
       console.log("Check the balance");
     } else if (choice == 3) {
@@ -47,12 +64,12 @@ const start = async () => {
 
 start();
 
-// rl.question(`\n Please choose one of the above options : `, (ch) => {
-//   console.log(`\n You have chosen ${ch}`);
-//   rl.close();
-// });
+async function createUser(name, surname, accountNumber) {
+  try {
+    const createdCustomer = `\n${name}, ${surname}, ${accountNumber}`;
 
-// rl.on("close", () => {
-//   console.log("\n Thank You");
-//   process.exit(0);
-// });
+    fs.appendFileSync("users.txt", createdCustomer);
+  } catch (error) {
+    console.error(`Got an error trying to write to a file: ${error.message}`);
+  }
+}
